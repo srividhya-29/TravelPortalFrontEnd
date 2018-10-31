@@ -1,0 +1,31 @@
+<style>
+        .scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+</style>
+
+<div class="kx-dropdown" role="group">
+        <button  #SelectDd id="--85072" class="kx-dropdown__toggle kx-btn kx-btn--skin-primary kx-btn--size-large kx-js-dropdown__toggle" 
+        aria-haspopup="true" aria-expanded="false" (click)="toggleDropdown(SelectDd)" [disabled]=saveFlag>
+        <span class="kx-btn__inner">
+            <span class="kx-btn__txt">{{value}}</span>
+            <!-- ICON Component -->
+            <i class="kx-icon kx-icon--size-small kx-dropdown__caret">
+                <svg focusable="false">
+                    <use xlink:href="../../assets/img/icons/sprites/icons.svg#caret-down"></use>
+                </svg>
+            </i>
+        </span>
+    </button>
+    <div class="kx-dropdown__menu kx-dropdown__menu--align-left kx-js-dropdown__menu" aria-labelledby="--85072">
+        <ul class="kx-dropdown__list " role="menu" *ngFor="let obj of x">
+            <li class="kx-dropdown__item" (click)="selectedItem(obj,SelectDd)">
+                    
+                   <span class="kx-dropdown__item__txt" >{{obj.name}}</span>
+                
+            </li>
+        </ul>
+    </div>
+</div>

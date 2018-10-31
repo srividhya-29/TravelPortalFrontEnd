@@ -1,0 +1,259 @@
+
+<body class="kx-page">
+    <div class="kx-page__canvas kx-flex kx-justify-content-start kx-align-items-start">
+        <div class="kx-page__main">
+            <main class="kx-main" role="main">
+
+                <button class="kx-page__overlay">
+                    <span class="kx-is-vishidden">Close</span>
+                </button>
+
+                <div class="kx-page__content">
+
+                    <div class="kx-menubar kx-theme--foam">
+                        <div class="kx-container">
+                            <div class="kx-row kx-align-items-center">
+                                <br>
+                                <br>
+                                <div class="kx-col--6">
+                                        <div class="kx-btngroup kx-flex kx-flex-wrap kx-justify-content-start" role="group" aria-label="A button group">
+    
+                                                <button type="button" class="btn btn-success" (click)="onSubmitClicked()">Submit</button>
+            
+                                            </div>
+    
+                                    </div>
+                                <div class="kx-col--6">
+                                    <!-- BUTTON-GROUP Component -->
+                                   
+                                    <div class="kx-btngroup kx-flex kx-flex-wrap kx-justify-content-end" role="group" aria-label="A button group">
+                                        <!-- BUTTON Component -->
+                                        <button class="kx-btn kx-btn--skin-primary kx-btn--size-base" >
+                                            <a  href="http://localhost:4300">
+                                            <span class="kx-btn__inner"  >
+                                                <!-- ICON Component -->
+                                                <i class="kx-icon kx-icon--size-base">
+                                                    <svg focusable="false">
+                                                        <use xlink:href="../../assets/img/icons/sprites/icons.svg#plus"></use>
+                                                    </svg>
+                                                </i>
+                                                <span class="kx-btn__txt" >New Request</span>
+                                            </span>
+                                        </a>
+                                            <!-- <a href="http://localhost:4300"></a> -->
+                                        </button>
+                                        <button class="kx-btn kx-btn--skin-primary kx-btn--size-base">
+                                            <span class="kx-btn__inner">
+
+
+                                                <span class="kx-btn__txt">View Requests</span>
+                                            </span>
+                                        </button>
+
+                                      
+
+
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <header class="kx-app__header">
+                        <h1 class="kx-app__title">NewRequest</h1>
+                    </header>
+                    <div class="kx-container">
+                        <form name= "myform">
+                     
+                        <div class="kx-row kx-row--gutters">
+                           <div class="kx-col kx-col--12">
+                             
+                                <div class="kx-card kx-card--skin-default kx-p--small">
+                                    <div class="kx-row kx-row--gutters">
+                                        <div class="kx-col kx-col--12 kx-col--6@tab-s kx-col--3@tab-l">
+                                            <div class="kx-row kx-row--gutters">
+                                                   
+                                                <div class="kx-col kx-col--12"  >
+                                                    <!-- FIELD Component -->
+                                                    <div class="kx-form__element" >
+                                                       
+                                                        <div >
+                                                            <h6 id="emp"[innerHtml]="getDropDownType()" >Employee:</h6>
+                                                            
+                                                           
+                                                             
+
+                                                        
+                                                            <drop-down [x]= "_selectedType" (selectedType)="onEmployeeClicked($event)" [saveFlag]="flag"  ></drop-down>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="kx-col kx-col--12">
+                                                    <!-- FIELD Component -->
+                                                    <div class="kx-form__element">
+                                                            <div >
+                                                                    <h6 id="travelType"[innerHtml]="getTravelTypes()" >Travel Type:</h6>
+                                                                    
+                                                                   
+                                                                     
+        
+                                                                
+                                                                    <drop-down [x]= "_travelTypes" (selectedType)="onTravelTypesClicked($event)" [saveFlag]="flag" ></drop-down>
+                                                                </div>
+        
+                                                    </div>
+                                                </div>
+                                                <div class="kx-col kx-col--12">
+                                                    <!-- FIELD Component -->
+                                                    <div class="kx-form__element">
+                                                            <div>
+                                                                    <h6 id="projects"[innerHtml]="getProjects()" >Project:</h6>
+                                                                    
+                                                                   
+                                                                     
+        
+                                                                
+                                                                    <drop-down [x]= "_projects" (selectedType)="onProjectClicked($event)" [saveFlag]="flag" ></drop-down>
+                                                                </div>
+        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="kx-col kx-col--12 kx-col--6@tab-s kx-col--3@tab-l">
+                                            <div class="kx-row kx-row--gutters">
+                                                <div class="kx-col kx-col--12">
+                                                    <!-- FIELD Component -->
+                                                    <div class="kx-form__element">
+                                                            <div  >
+                                                                    <h6 id="client"[innerHtml]="getClients()" >Client:</h6>
+                                                                    
+                                                                   
+                                                                     
+        
+                                                                
+                                                                    <drop-down [x]= "_clients" (selectedType)="onClientClicked($event)" [saveFlag]="flag"></drop-down>
+                                                                </div>
+        
+                                                    </div>
+                                                </div>
+                                                <div class="kx-col kx-col--12">
+                                                       
+                                                    <!-- FIELD Component -->
+                                                   
+                                                    <label class="kx-label" for="--51454">
+                                                        <h6>Place</h6>
+                                                    </label>
+                                                    <input id="enterplace" class="kx-field kx-field--size-large kx-is-invalid"  type="text" [disabled]=flag  #place placeholder="Enter The Place"  />
+                                                    
+                                                </div>
+                                                <div class="kx-col kx-col--12">
+                                                    
+                                                    <!-- FIELD Component -->
+                                                    <label class="kx-label" for="--51454">
+                                                        <h6>Start Date</h6>
+                                                    </label>
+                                                    <input id ="startdate"class="kx-field kx-field--size-large"  type="date" [disabled]=flag   #startDate placeholder="Start Date" required="required" />
+                                               
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="kx-col kx-col--12 kx-col--6@tab-s kx-col--3@tab-l">
+                                            <div class="kx-row kx-row--gutters">
+                                                <div class="kx-col kx-col--12">
+                                                        
+                                                    <!-- FIELD Component -->
+                                                    <label class="kx-label" for="--51454">
+                                                        <h6>End Date</h6>
+                                                    </label>
+                                                    <input name="enterenddate"class="kx-field kx-field--size-large"  type="date" [disabled]=flag  #endDate placeholder="End Date"   required />
+                                                    
+                                                </div>
+                                                <div class="kx-col kx-col--12">
+                                                   
+                                                    <!-- FIELD Component -->
+                                                     <label class="kx-label" for="--51454">
+                                                        <h6>Travel Name:</h6>
+                                                    </label>
+                                                    <input id="entertravelname" matInput class="kx-field kx-field--size-large" [disabled]=flag  type="text" #travelName placeholder="Travel Request Name"  required    /> 
+                                                         
+                                                </div>
+                                                <div class="kx-col kx-col--12">
+                                                    <!-- FIELD Component -->
+                                                    
+                                                            <label class="kx-label" for="--51454">
+                                                                   <h6>Status</h6> 
+                                                                </label>
+                                                        <input class="kx-field kx-field--size-large"  id="--51454" type="text" name="s"  [(ngModel)] = "StatusType" readonly  />
+                                                       
+                                                     
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="kx-col kx-col--12 kx-col--6@tab-s kx-col--3@tab-l">
+                                            <div class="kx-row kx-row--gutters">
+                                                <div class="kx-col kx-col--12">
+                                                    <!-- FIELD Component -->
+                                                    <div class="kx-btngroup kx-flex kx-flex-wrap kx-justify-content-end" role="group" aria-label="A button group">
+                                                   
+                                                            <button  id="saveButton" class="kx-btn kx-btn--skin-primary kx-btn--size-base" [disabled]=flag type="submit" (click)= "onSave(travelName.value,place.value,startDate.value,endDate.value)" >
+                                                                    <span class="kx-btn__inner">
+                        
+                        
+                                                                        <span class="kx-btn__txt">Save</span>
+                                                                    </span>
+                                                                </button>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                        </form>
+                        <div class="kx-row kx-row--gutters kx-align-items-stretch">
+                           
+                                       
+                                
+                        </div>
+                    
+                    </div>
+                        
+
+                </div>
+            </main>
+        </div>
+
+        
+    </div>
+
+    <script>
+        let buttons = document.querySelectorAll('.kx-btn');
+
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function (event) {
+                this.blur();
+            });
+        }
+    </script>
+   
+   
+  
+    <script src="../../assets/scripts/js/helpers.js"></script>
+    <script src="../../assets/scripts/js/navigation.js"></script>
+    <script src="../../assets/scripts/js/object-fit-fallback.js"></script>
+
+    <script src="../../assets/scripts/js/components/dropdown.js"></script>
+
+</body>
